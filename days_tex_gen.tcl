@@ -4,6 +4,12 @@ foreach {month daycount} {Januari 31 Februari 28 Maart 31 April 30 Mei 31 Juni 3
 	for {set day 1} {$day <= $daycount} {incr day} {
 		gets $j joke
 		set joke [regsub {[#%]} $joke {\\&}]
-		puts $f "\\calpage {$month} {$day} {$joke}"
+		puts $f "
+		\\begincal
+		\\monthtext{$month}
+		\\daytext{$day}
+		\\quotestart
+		\\quote{$joke}
+		\\endcal"
 	}
 }
