@@ -19,6 +19,7 @@
 \def\endcal{\vfill\eject}
 \def\monthtext#1{\vbox to 2.5cm{\centerline{\datemonth#1}\vfil}}
 \def\daytext#1{\vbox to 2.5cm{\centerline{\datenum#1}\vfil}}
+\def\quotestart{\fullline{3mm}\vskip 5cm}
 \def\quote#1{\noindent#1}
 
 \def\calpage#1#2#3{%
@@ -27,9 +28,7 @@
 \monthtext{#1}%
 \daytext{#2}%
 %
-\fullline{3mm}%
-%
-\vskip 5cm%
+\quotestart%
 %
 \quote{#3}%
 %
