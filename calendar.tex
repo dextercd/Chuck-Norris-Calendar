@@ -13,25 +13,27 @@
 \font\datenum= "Source Code Pro" at 90pt
 \font\datemonth= "Source Code Pro" at 70pt
 
-\def\setverb{\def\do##1{\catcode`##1=12}\dospecials\relax}
-\def\id#1{#1}
-\def\verb#1{\bgroup\setverb\id{#1}\unskip\egroup}
+\def\fullline#1{\moveleft\pageleftoffset\vbox{\hrule width \pagewidth height #1}}
+
+\def\begincal{\vskip 1cm\fullline{0.4pt}\vskip 1cm}
+\def\endcal{\vfill\eject}
+\def\monthtext#1{\vbox to 2.5cm{\centerline{\datemonth#1}}}
+\def\daytext#1{\vbox to 2.5cm{\centerline{\datenum#1}}}
+\def\quote#1{\noindent#1}
 
 \def\calpage#1#2#3{%
-\vskip 1cm%
-\moveleft\pageleftoffset\vbox{\hrule width \pagewidth}%
-\vskip 1cm%
+\begincal%
 %
-\vbox to 2.5cm{\centerline{\datemonth #1}\vfil}%
-\vbox to 2.5cm{\centerline{\datenum #2}\vfil}%
+\monthtext{#1}%
+\daytext{#2}%
 %
-\moveleft\pageleftoffset\vbox{\hrule width \pagewidth height 2mm}%
+\fullline{3mm}%
 %
 \vskip 5cm%
 %
-\noindent ``#3''%
+\quote{#3}%
 %
-\vfill\eject%
+\endcal%
 }
 
 \input days.tex
