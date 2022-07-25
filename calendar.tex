@@ -1,0 +1,32 @@
+\pagewidth=148 true mm
+\pageheight=210 true mm
+\pageleftoffset=1cm
+\pagerightoffset=1cm
+\pagetopoffset=1cm
+\pagebottomoffset=1cm
+\hsize=\dimexpr(\pagewidth - \pageleftoffset - \pagerightoffset)
+\vsize=\dimexpr(\pageheight - \pagetopoffset - \pagebottomoffset)
+
+\nopagenumbers
+
+\input luaotfload.sty
+\font\datenum= "Source Code Pro" at 90pt
+\font\datemonth= "Source Code Pro" at 70pt
+\font\normalfont= "Nimbus Sans" at 20pt
+\normalfont
+
+\def\fullline#1{\moveleft\pageleftoffset\vbox{\hrule width \pagewidth height #1}}
+
+\def\begincal{\vskip 1cm\fullline{0.4pt}\vskip 1cm}
+\def\endcal{\vfill\eject}
+\def\monthtext#1{\vbox to 2.5cm{\centerline{\datemonth#1}\vfil}}
+\def\daytext#1{\vbox to 2.5cm{\centerline{\datenum#1}\vfil}}
+\def\quotestart{\fullline{3mm}\vskip 1cm}
+\def\quote#1{\noindent#1}
+
+\tolerance=10000
+\parskip=\baselineskip
+
+\input days.tex
+
+\end
